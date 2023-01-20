@@ -1,5 +1,54 @@
 System.Console.ReadLine() : 입력된 내용을 문자열로 반환
 System.Console.Read()     : 문자 하나를 읽어 문자값에 해당하는 정수를 반환.
 
-문자열 보간 : $"Your full name is { firstName } { lastName }"
+문자열 보간 : $"Your full name is { firstName } { lastName }"  ==  string.Format("Your full name is {0} {1}.",firstName, lastName)
 서식 문자열 : "Your full name is {0} {1}". firstName, lastName
+축자 문자열 : @"\"  : 이스케이프 시퀀스 문자 무시
+0x : 16진수
+0b : 2진수
+
+
+string 메서드
+-- Format, Concat, Compare, StartsWith, EndsWith, ToLower, ToUpper, Trim, TrimEnd, TrimStart, Replace
+
+using static System.Console : 정적 클래스 사용 할때 마다 접두어 System.Console을 제거 시켜 준다.1
+
+null 허용 한정자 ?
+int a = null;  //에러 발생 null 허용하지 않는다.
+int? a = null; //정상 처리
+
+참조형인 경우 기본 null 값을 대입할 수 있었다. 그러나 C# 8.0부터 null 참조 허용을 명시적으로 선언할 수있다.
+
+#nullable enable
+string a = null;   //null 값을 허용하지 않는 형식으로 변환한다는 경고 발생
+
+#nullable disable
+string a = null;   //null 허용 여부 체크 하지 않는다. 정상 처리
+
+long -> 정수로 변환
+int a = (int)123L;
+
+string -> 정수로 변환
+int a = int.Parse("123");
+
+System.Convert.To... 사용
+int c = System.Convert.ToInt32(123L);
+--지원 타입 : bool, char, sbyte, short, int, long, ushort, uint, ulong, float, double, decimal, DateTime, string
+
+TryParse : true, false 반환
+double.TryParse(변한해야할 값 또는 변수, out double 변환성공시 사용할 변수ㅜ)
+
+double number;
+string input;
+input = System.Console.ReadLine();
+if(double.TryParse(input, out number)){
+    //성공시 number 사용
+}else{
+    //변환 실패
+}
+
+checked : 데이터 오버, 언더 플로인경우 에러 발생
+unchecked : 데이터 오버, 언더 플로인경우 에러 무시
+checked{
+    //관련 연산 처리
+}
