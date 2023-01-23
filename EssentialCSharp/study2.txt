@@ -1,0 +1,5 @@
+var : implicitly typed local variable (암시적 형식 지역 변수)
+
+튜플
+(string country, string capital, double gdpPerCaital) = ("South Sudan","Juba",275.18)
+(string country, string capital, double gdpPerCaital) countryInfo = ("South Sudan","Juba",275.18)
