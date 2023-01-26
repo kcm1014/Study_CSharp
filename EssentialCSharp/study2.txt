@@ -3,3 +3,39 @@ var : implicitly typed local variable (암시적 형식 지역 변수)
 튜플
 (string country, string capital, double gdpPerCaital) = ("South Sudan","Juba",275.18)
 (string country, string capital, double gdpPerCaital) countryInfo = ("South Sudan","Juba",275.18)
+var countryInfo2 = (Name:"South Korea",Capital:"Seoul",gdpPerCaital:40000);
+
+Console.WriteLine($"{country} {capital} {gdpPerCaital}");
+Console.WriteLine($"{countryInfo.country} {countryInfo.capital} {countryInfo.gdpPerCaital}");
+
+Console.WriteLine($"{countryInfo2.Name} {countryInfo2.Capital} {countryInfo2.gdpPerCaital}");
+Console.WriteLine($"{countryInfo2.Item1} {countryInfo2.Item2} {countryInfo2.Item3}");
+
+배열
+하나의 변수를 사용해 동일한 형식의 데이터 항목 컬렉션을 선언하는 수단.
+C# 8.0 부터 끝부터 인덱스 제공  ^1 <-- 마지막 요소 액세스 한다.
+
+배열 선언
+string[] languages;   //1차원 
+int[,] cells;         //2차원
+
+배열 할당
+string[] languages = {"C#","COBOL"};
+languages = new string[2];
+languages = new string[]{"C#","COBOL"};
+int[,] cells = int [3,3]{{1,0,2},{1,2,0},{1,2,1}};
+
+배열 크기는 변수선언의 일부로 포함하지 않기 때문에 런타임에 크기 지정이 가능하다.
+int size = int.Parse(Console.ReadLine());
+string[] groceryList;
+groceryList = new string[size];
+
+
+가변 배열 
+각 차원이 동일하지 않는다.
+int[][] cells = {
+    new int[]{1,0,2,0},
+    new int[]{1,2,0},
+    new int[]{1,2},
+    new int[]{1}
+};
