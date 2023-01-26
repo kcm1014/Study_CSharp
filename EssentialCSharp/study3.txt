@@ -1,0 +1,43 @@
+두 문자 사이의 간격 확인하기
+int distance = 'f' ? 'c' ; // distance에는 3의 대입
+
+
+
+
+증감 연산자
+void test(int a, int b){
+    Console.WriteLine($"{a} {b}");  // 4, 5
+}
+
+int a = 4;
+
+test(a++,a++);           //항상  왼쪽에서 오른쪽으로 진행( test(4,5) 
+Console.WriteLine(a);    // 6 
+
+
+null 검사
+string? uri = null;
+if(uri != null)
+if(object.ReferenceEquals(uri,null))
+if(uri is null)   // null 인지 
+if(uri is object) // not null  null 이 아닌지
+if(uri is {} )    // not null
+
+
+null 병합 연산자(??)
+식1 ?? 식2;      //식1이 null 이아니면 식1을 평가, 식1이 null 이면 식2를 평가
+string fileName = GEtFileName() ?? "config.json";
+
+
+null 병합 할당 연산자
+string? fileName = null;
+fileName ??= "json";
+Console.WriteLine(fileName);    //json 출력
+
+
+null 조건 연산자(?. , ?[])
+int? length = segments?.Length;     // 다음과 동일 int? length = (segments != null)?segments.Length : null;
+Console.WriteLine(segments?[0]);   // segments가 null이면 null  아니면 값 출력
+
+null-forgiving 연산자(!)
+uri = string.Join('/',segments!);   segments 는 null이 아님을 확신
