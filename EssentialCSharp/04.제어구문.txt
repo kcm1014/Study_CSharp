@@ -1,0 +1,42 @@
+foreach(형식 변수 in 컬렉션)
+    구문
+
+foreach(char cell in cells){
+    if(cell != 'O' && cell != 'X'){
+        System.Console.Write($"{cell}");
+    }
+}
+
+switch(식){
+    case 상수:
+        구문
+        break;
+    default:
+        구문
+        break;
+}
+식 : bool, sbyte, byte, short, ushort, int, uint, long, ulong, char, enum...
+
+
+break
+continue
+goto
+switch 문에서 goto 문은 다음과 같이 사용이 가능
+goto default;
+goto case constant;
+
+
+#if
+#elif
+#else
+#endif
+
+#pragma : 경고를 끌때..
+#pragma warning disable CS1030         //CS1030 경고 차단
+#pragma warning restore CS1030         //CS1030 경고 활성화
+
+
+코드 영역 지정
+#regin myCode
+...
+#endregin

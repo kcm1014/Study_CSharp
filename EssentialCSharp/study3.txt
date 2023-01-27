@@ -2,8 +2,6 @@
 int distance = 'f' ? 'c' ; // distance에는 3의 대입
 
 
-
-
 증감 연산자
 void test(int a, int b){
     Console.WriteLine($"{a} {b}");  // 4, 5

@@ -1,0 +1,69 @@
+식 본문 메서드
+메서드 본문의 형식 없이 아주 간단히 메서드를 선언할 수 있도록 C# 6.0에서 전체 메세드 본문이 아닌 표현식을 사용해 메서드를 선언
+메서드 반환형식과 표현식의 결과가 일치하여야 한다.
+static string GetFullName( string firstName, string lastName) => $"{firstName} {lastName}";
+
+
+using 지시문은 모든 중첩된 네임스페이스 형식을 가져오지 않고, 해당 네임스페이스에서 마침표로 구분하고 항상 명시적으로 표함해야 한다.
+using System;   //System.Console.WriteLine()에서 System을 생략해.. Console.WriteLine()으로 사용할 수 있게 한다.
+그러나 System.Text.StringBuilder 를 사용하기 위해 System을 생략해 Text.StringBuilder만 사용할 수 없다. 
+using System.Text; 형태로 사용해야 Text.StringBuilder로 사용가능
+
+
+
+using static 지시문   //명시한 모든 멤버에서 네임스페이스와 형식 이름 모두를 생략 가능 하다.
+using static System.Console;
+WriteLine("System.Console 형식 생략 가능")
+
+별칭
+using CountDownTimer = System.Timers.Timer;
+CountDownTimer timer;
+
+참조 매개변수(ref)
+호출전 first, second는 초기화 되어 있어야 한다.
+Swap(ref first, ref second);  //호출시 ref 붙여서 호출
+static void Swap(ref string x, ref string y){
+    ...
+}
+
+
+출력 매개변수(out)
+button 은 초기화 하지 않고 제공 가능
+TryGetPhoneButton(character, out button)
+static bool TryGetPhoneButton(char character, out char button){
+    ....
+}
+
+
+참조로 읽기 전용 전달(in)
+
+참조로 반환하기
+ref byte redPixel = ref FindFirstRedEyePixel(image);
+public static ref byte FindFirstRedEyePixel(byte[] image){
+    ...
+    return ref image[counter];
+}
+
+
+매개변수 배열 : 가변 인자를 받는 함수 선언(params)
+메서드 선언의 마지막 매개변수 바로 앞에 params를 배치한다.
+마지막 매개변수를 배열로 선언한다.
+static string Combine(params string[] paths){
+    foreach(string path in paths){
+        ...
+    }
+}
+
+
+선택적 매개변수 : 기본값
+
+
+try{
+
+}catch(Exception e){
+
+}finally{
+
+}
+
+throw new Exception("예외 발생");
